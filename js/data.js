@@ -92,10 +92,13 @@ const createPost = (index) => {
 /**
  * Функция создает указанное кол-во случайных данных для постов
  * @param {number} amount кол-во случайных данных для постов
+ * @param {function name(params) {
+  @param {number} индекс поста
+ }} функция createPost - колбэк для создания постов
  * @returns {Array} массив с объектами случайных данных для постов
  */
-const createPosts = (amount = NUMBER_OF_POSTS) => Array.from({length: amount}, (_, postIndex) =>
-  createPost(postIndex + 1)
+const createPosts = (amount = NUMBER_OF_POSTS, cb = createPost) => Array.from({length: amount}, (_, postIndex) =>
+  cb(postIndex + 1)
 );
 
 export {createPosts}

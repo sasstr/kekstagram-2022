@@ -8,7 +8,6 @@ const commentsLoader = bigPicture.querySelector('.comments-loader');
 const btnPictureCancel = bigPicture.querySelector('#picture-cancel');
 const ESC_KEYCODE = 27;
 
-
 /**
  *  Функция закрывает окно с большой фото
  * @return {void}
@@ -18,7 +17,7 @@ const closeBigPictureModal = ()=> {
   document.body.classList.remove('modal-open');
   socialCommentCount.classList.remove('hidden');
   commentsLoader.classList.remove('hidden');
-
+  // уберем обработчики событий для закарытия окна
   document.removeEventListener('keyup', escBtnBigPictureHandler);
   btnPictureCancel.removeEventListener('click', clickBtnClosePictureHandler);
 }
@@ -94,7 +93,7 @@ const showBigPicture = (post) => {
   socialCommentCount.classList.add('hidden');
   commentsLoader.classList.add('hidden');
   bigPicture.classList.remove('hidden');
-
+  // Добавим обработчики событий для закарытия окна
   document.addEventListener('keyup', escBtnBigPictureHandler);
   btnPictureCancel.addEventListener('click', clickBtnClosePictureHandler);
 };

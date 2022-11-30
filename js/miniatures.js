@@ -17,6 +17,7 @@ const showPosts = (array = posts) => {
     userPost.querySelector('.picture__img').src = post.url;
     userPost.querySelector('.picture__comments').textContent = post.comments.length;
     userPost.querySelector('.picture__likes').textContent = post.likes;
+    // Добавим обработчик события на каждую миниатюру, чтобы было можно открыть большую фото
     userPost.querySelector('.picture__img').addEventListener('click', () => {
       showBigPicture(post);
     });
