@@ -3,6 +3,7 @@ import {showBigPicture} from './big-picture.js';
 const posts = createPosts();
 const picturesContainer = document.querySelector('.pictures');
 const templatePicture = document.querySelector('#picture').content;
+const ENTER_KEYCODE = 13;
 
 /**
  * Функция создает и вставляет на страницу посты с данными из массива
@@ -21,6 +22,13 @@ const showPosts = (array = posts) => {
     userPost.querySelector('.picture__img').addEventListener('click', () => {
       showBigPicture(post);
     });
+    userPost.addEventListener('keydown', (evtEnter)=> {
+        if(evtEnter.keyCode === ENTER_KEYCODE) {
+          evtEnter.preventDefault()
+          showBigPicture(post);
+        }
+    });
+
     fragment.appendChild(userPost);
   });
   picturesContainer.appendChild(fragment);
